@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Torgeir Rebolledo Pedersen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f3f0;
+    --grey: #888;
+    --light-grey: #d4d0cb;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Libre Franklin', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    background: var(--white);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.4s ease;
+  }
+
+  nav.scrolled {
+    border-bottom-color: var(--light-grey);
+  }
+
+  nav .logo {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  nav .nav-links {
+    display: flex;
+    gap: 36px;
+  }
+
+  nav .nav-links a {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--grey);
+    transition: color 0.3s ease;
+  }
+
+  nav .nav-links a:hover {
+    color: var(--black);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 48px 80px;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 120px;
+    right: 48px;
+    width: 1px;
+    height: 200px;
+    background: var(--black);
+    animation: lineGrow 1.2s ease-out 0.6s both;
+  }
+
+  @keyframes lineGrow {
+    from { height: 0; }
+    to { height: 200px; }
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(42px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease-out both;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .hero-sub {
+    display: flex;
+    gap: 48px;
+    align-items: baseline;
+    animation: fadeUp 0.8s ease-out 0.3s both;
+  }
+
+  .hero-sub .label {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+
+  .hero-sub .year {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--grey);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 120px 48px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--light-grey);
+  }
+
+  /* BIO */
+  .bio {
+    border-top: 1px solid var(--light-grey);
+  }
+
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .bio-intro {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.4;
+    font-weight: 300;
+  }
+
+  .bio-text p {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .bio-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--light-grey);
+  }
+
+  .fact-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 6px;
+  }
+
+  .fact-value {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  /* WORKS */
+  .works {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .works .section-label {
+    color: #666;
+  }
+
+  .works .section-label::after {
+    background: #333;
+  }
+
+  .filter-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid #333;
+    color: #666;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    border-color: var(--white);
+    color: var(--white);
+  }
+
+  .works-list {
+    list-style: none;
+  }
+
+  .work-item {
+    display: grid;
+    grid-template-columns: 80px auto 1fr auto;
+    gap: 24px 32px;
+    align-items: center;
+    padding: 24px 0;
+    border-top: 1px solid #1a1a1a;
+    cursor: default;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .work-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .work-item:last-child {
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .work-item:hover {
+    padding-left: 12px;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .work-cover {
+    width: 60px;
+    height: 84px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .work-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .work-cover .cover-placeholder {
+    font-family: var(--serif);
+    font-size: 10px;
+    color: #555;
+    text-align: center;
+    padding: 4px;
+    line-height: 1.2;
+  }
+
+  .work-year {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: #555;
+  }
+
+  .work-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .work-title {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.4vw, 28px);
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  .work-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .work-genre {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    white-space: nowrap;
+  }
+
+  .work-buy {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid #555;
+    padding-bottom: 1px;
+    transition: border-color 0.3s ease, opacity 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .work-buy:hover {
+    border-bottom-color: var(--white);
+  }
+
+  .work-item .work-details {
+    grid-column: 2 / -1;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    font-size: 14px;
+    color: #777;
+    line-height: 1.6;
+  }
+
+  .work-item.expanded .work-details {
+    max-height: 120px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  /* PRISER */
+  .prizes {
+    border-top: 1px solid var(--light-grey);
+  }
+
+  .prize-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 48px;
+  }
+
+  .prize-item {
+    padding: 32px 0;
+    border-top: 1px solid var(--light-grey);
+  }
+
+  .prize-name {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .prize-year-desc {
+    font-size: 15px;
+    color: var(--grey);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 48px;
+    border-top: 1px solid var(--light-grey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer .colophon {
+    font-size: 12px;
+    color: var(--grey);
+    letter-spacing: 0.05em;
+  }
+
+  footer .back-top {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--grey);
+    transition: color 0.3s ease;
+  }
+
+  footer .back-top:hover {
+    color: var(--black);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    nav .nav-links { gap: 20px; }
+    nav .nav-links a { font-size: 10px; }
+    .hero { padding: 0 24px 60px; }
+    .hero::before { right: 24px; height: 120px; }
+    section { padding: 80px 24px; }
+    .bio-grid { grid-template-columns: 1fr; gap: 40px; }
+    .bio-facts { grid-template-columns: 1fr; }
+    .work-item { grid-template-columns: 50px 1fr; gap: 12px 16px; }
+    .work-cover { width: 50px; height: 70px; }
+    .work-buy { grid-column: 2; justify-self: start; }
+    footer { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="logo">Torgeir Rebolledo Pedersen</div>
+  <div class="nav-links">
+    <a href="#om">Om</a>
+    <a href="#utgivelser">Utgivelser</a>
+    <a href="#priser">Priser</a>
+  </div>
+</nav>
+
+<header class="hero" id="topp">
+  <h1 class="hero-name">Torgeir<br><em>Rebolledo</em><br>Pedersen</h1>
+  <div class="hero-sub">
+    <span class="label">Dikter · Arkitekt · Dramatiker</span>
+    <span class="year">f. 1949, Oslo</span>
+  </div>
+</header>
+
+<section class="bio" id="om">
+  <div class="section-label"><span>Om forfatterskapet</span></div>
+  <div class="bio-grid">
+    <div class="bio-intro">
+      En av norsk poesis mest markante stemmer — med et slentrende, uhøytidelig språk der alvor og humor møtes.
+    </div>
+    <div>
+      <div class="bio-text">
+        <p>Torgeir Rebolledo Pedersen er utdannet arkitekt og debuterte med diktsamlingen <em>Tidr</em> i 1983. Gjennom over fire tiår har han bygget et forfatterskap som spenner fra lyrikk og essayistikk til dramatikk, barnebøker og musikkteater.</p>
+        <p>Karakteristisk for hans poesi er et lekent, språkkritisk uttrykk med hyppig bruk av ordspill og ironiske allusjoner. Han er blitt kalt en «poesiens Buster Keaton» — en som trekker leseren inn i en sprelsk, surrealistisk verden der det tragiske og det komiske er to sider av samme sak.</p>
+        <p>I 1980-årene var han en del av den poetiske aksjonsgruppen Stuntpoetene, sammen med blant andre Karin Moe, Thorvald Steen og Erling Kittelsen. Han har opptrådt med jazzgruppen Søyr, og i 2005 ble han Norgesmester i slampoesi.</p>
+      </div>
+      <div class="bio-facts">
+        <div>
+          <div class="fact-label">Debut</div>
+          <div class="fact-value">Tidr, 1983</div>
+        </div>
+        <div>
+          <div class="fact-label">Utdanning</div>
+          <div class="fact-value">Arkitekt</div>
+        </div>
+        <div>
+          <div class="fact-label">Bosted</div>
+          <div class="fact-value">Oslo</div>
+        </div>
+        <div>
+          <div class="fact-label">Forlag</div>
+          <div class="fact-value">Oktober / Solum Bokvennen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="works" id="utgivelser">
+  <div class="section-label"><span>Utgivelser</span></div>
+  <div class="filter-row">
+    <button class="filter-btn active" data-filter="alle">Alle</button>
+    <button class="filter-btn" data-filter="lyrikk">Lyrikk</button>
+    <button class="filter-btn" data-filter="barnebøker">Barnebøker</button>
+    <button class="filter-btn" data-filter="dramatikk">Dramatikk</button>
+    <button class="filter-btn" data-filter="sakprosa">Sakprosa</button>
+  </div>
+  <ul class="works-list" id="worksList"></ul>
+</section>
+
+<section class="prizes" id="priser">
+  <div class="section-label"><span>Priser og utmerkelser</span></div>
+  <div class="prize-list">
+    <div class="prize-item">
+      <div class="prize-name">Doblougprisen</div>
+      <div class="prize-year-desc">2013 — Tildelt sammen med Karin Moe for forfatterskapet</div>
+    </div>
+    <div class="prize-item">
+      <div class="prize-name">Prix d'Italia</div>
+      <div class="prize-year-desc">1999 — For radiooperaen <em>Alfa Romeo</em></div>
+    </div>
+    <div class="prize-item">
+      <div class="prize-name">Edvard Grieg-prisen</div>
+      <div class="prize-year-desc">1999 — For radiooperaen <em>Alfa Romeo</em></div>
+    </div>
+    <div class="prize-item">
+      <div class="prize-name">Oktoberprisen</div>
+      <div class="prize-year-desc">For diktsamlingen <em>Blåveisfra</em></div>
+    </div>
+    <div class="prize-item">
+      <div class="prize-name">Den norske Lyrikklubbens pris</div>
+      <div class="prize-year-desc">For diktsamlingen <em>Blåveisfra</em></div>
+    </div>
+    <div class="prize-item">
+      <div class="prize-name">NM i Slampoesi</div>
+      <div class="prize-year-desc">2005 — Norgesmester</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="colophon">Torgeir Rebolledo Pedersen — Dikter, arkitekt, dramatiker</div>
+  <a href="#topp" class="back-top">Tilbake til topp ↑</a>
+</footer>
+
+<script>
+const works = [
+  { year: 2024, title: "Sangbok for vanføre — uleilighetsdikt", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 2023, title: "Krydderkara (et fortellende dikt)", genre: "lyrikk", publisher: "Solum Bokvennen", cover: "", buyUrl: "#" },
+  { year: 2023, title: "Om México og min morfars trokeer. Elfrén Rebolledo 1877–1929", genre: "sakprosa", publisher: "", cover: "", buyUrl: "#" },
+  { year: 2022, title: "Tilværelser", genre: "sakprosa", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 2019, title: "Musikkteatertekster 1996–2019", genre: "dramatikk", publisher: "Solum", cover: "", buyUrl: "#" },
+  { year: 2019, title: "Dikt i utvalg. I krig og kjærlighet er mye ugjort", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 2013, title: "Dattera som datt ut av et vindu", genre: "barnebøker", publisher: "Cappelen Damm", cover: "", buyUrl: "#" },
+  { year: 2011, title: "Lammet som ikke ville bli lår", genre: "barnebøker", publisher: "Cappelen", cover: "", buyUrl: "#" },
+  { year: 2010, title: "Erfaring og forsvinning", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 2008, title: "Min fars tegnemaskin", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 2006, title: "Geitehjerte", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 2006, title: "God natt, lille abbor", genre: "barnebøker", publisher: "Cappelen Damm", cover: "", buyUrl: "#" },
+  { year: 2002, title: "Ferdskriver", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 2000, title: "Regnestykke for en sky", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 1998, title: "Nutrius (medforfatter)", genre: "lyrikk", publisher: "Univ. i Oslo", cover: "", buyUrl: "#" },
+  { year: 1997, title: "Blåveisfra", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 1996, title: "Verdener Gud engang ga ut", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 1996, title: "Askeladden og de gode hjelperne", genre: "dramatikk", publisher: "", cover: "", buyUrl: "#" },
+  { year: 1995, title: "I krig og kjærlighet er ennå mye ugjort", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 1993, title: "Han som elsket verden", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 1990, title: "Stråmann", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 1989, title: "En skapelsesoppfordring", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 1988, title: "Landskapets hengsler", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 1987, title: "Pube", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 1985, title: "Gule sko. Gå med løvet", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 1983, title: "Tidr", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" }
+];
+
+const list = document.getElementById('worksList');
+let currentFilter = 'alle';
+
+function renderWorks(filter) {
+  list.innerHTML = '';
+  const filtered = filter === 'alle' ? works : works.filter(w => w.genre === filter);
+
+  filtered.forEach((w, i) => {
+    const li = document.createElement('li');
+    li.className = 'work-item';
+    li.setAttribute('data-genre', w.genre);
+    const coverHtml = w.cover
+      ? `<img src="${w.cover}" alt="${w.title}">`
+      : `<span class="cover-placeholder">${w.year}</span>`;
+    const buyHtml = w.buyUrl && w.buyUrl !== '#'
+      ? `<a href="${w.buyUrl}" class="work-buy" target="_blank" rel="noopener">Kjøp boken →</a>`
+      : `<a href="#" class="work-buy" style="opacity:0.35;pointer-events:none;">Kjøp boken →</a>`;
+
+    li.innerHTML = `
+      <div class="work-cover">${coverHtml}</div>
+      <div class="work-info">
+        <span class="work-title">${w.title}</span>
+        <div class="work-meta">
+          <span class="work-genre">${w.genre}</span>
+          <span class="work-year">${w.year}</span>
+        </div>
+      </div>
+      ${buyHtml}
+      ${w.publisher ? `<div class="work-details">${w.publisher}</div>` : '<div class="work-details"></div>'}
+    `;
+
+    li.addEventListener('click', () => li.classList.toggle('expanded'));
+
+    list.appendChild(li);
+
+    setTimeout(() => li.classList.add('visible'), 40 * i);
+  });
+}
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    renderWorks(currentFilter);
+  });
+});
+
+// Nav scroll state
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Initial render
+renderWorks('alle');
+
+// Intersection observer for bio section
+const bioObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.bio-grid, .prize-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  bioObserver.observe(el);
+});
+</script>
+
+</body>
+</html>
