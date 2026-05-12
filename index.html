@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Torgeir Rebolledo Pedersen</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -13,8 +13,8 @@
     --white: #f5f3f0;
     --grey: #888;
     --light-grey: #d4d0cb;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Libre Franklin', sans-serif;
+    --serif: 'Baskerville', 'Libre Baskerville', Georgia, serif;
+    --sans: 'Baskerville', 'Libre Baskerville', Georgia, serif;
   }
 
   html { scroll-behavior: smooth; }
@@ -22,8 +22,8 @@
   body {
     background: var(--white);
     color: var(--black);
-    font-family: var(--sans);
-    font-weight: 300;
+    font-family: var(--serif);
+    font-weight: 400;
     font-size: 17px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
@@ -92,35 +92,18 @@
     position: relative;
   }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 120px;
-    right: 48px;
-    width: 1px;
-    height: 200px;
-    background: var(--black);
-    animation: lineGrow 1.2s ease-out 0.6s both;
-  }
-
-  @keyframes lineGrow {
-    from { height: 0; }
-    to { height: 200px; }
-  }
-
   .hero-name {
     font-family: var(--serif);
-    font-size: clamp(42px, 7vw, 96px);
-    font-weight: 300;
+    font-size: clamp(42px, 5.5vw, 84px);
+    font-weight: 400;
     line-height: 1.05;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     margin-bottom: 32px;
     animation: fadeUp 0.8s ease-out both;
   }
 
   .hero-name em {
     font-style: italic;
-    font-weight: 300;
   }
 
   .hero-sub {
@@ -132,15 +115,13 @@
 
   .hero-sub .label {
     font-size: 13px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--grey);
   }
 
   .hero-sub .year {
-    font-family: var(--serif);
-    font-size: 20px;
-    font-weight: 300;
+    font-size: 15px;
     color: var(--grey);
   }
 
@@ -177,60 +158,66 @@
     border-top: 1px solid var(--light-grey);
   }
 
-  .bio-grid {
+  .bio-layout {
     display: grid;
-    grid-template-columns: 1fr 1.6fr;
+    grid-template-columns: 1fr 400px;
     gap: 80px;
     align-items: start;
   }
 
-  .bio-intro {
-    font-family: var(--serif);
-    font-size: clamp(24px, 3vw, 36px);
-    line-height: 1.4;
-    font-weight: 300;
+  .bio-portrait img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
   }
 
   .bio-text p {
     margin-bottom: 20px;
-    color: #333;
+    color: #444;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .bio-text p:last-child {
+    margin-bottom: 0;
   }
 
   .bio-facts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    display: flex;
+    gap: 0;
     margin-top: 48px;
     padding-top: 32px;
     border-top: 1px solid var(--light-grey);
   }
 
+  .bio-facts > div {
+    flex: 1;
+    padding-right: 24px;
+  }
+
+  .bio-facts > div + div {
+    padding-left: 24px;
+    padding-right: 24px;
+    border-left: 1px solid var(--light-grey);
+  }
+
   .fact-label {
-    font-size: 11px;
-    letter-spacing: 0.15em;
+    font-size: 10px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--grey);
     margin-bottom: 6px;
   }
 
   .fact-value {
-    font-family: var(--serif);
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
   }
 
   /* WORKS */
   .works {
-    background: var(--black);
-    color: var(--white);
-  }
-
-  .works .section-label {
-    color: #666;
-  }
-
-  .works .section-label::after {
-    background: #333;
+    background: var(--white);
+    color: var(--black);
   }
 
   .filter-row {
@@ -246,8 +233,8 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     background: none;
-    border: 1px solid #333;
-    color: #666;
+    border: 1px solid var(--light-grey);
+    color: var(--grey);
     padding: 8px 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -255,8 +242,8 @@
 
   .filter-btn:hover,
   .filter-btn.active {
-    border-color: var(--white);
-    color: var(--white);
+    border-color: var(--black);
+    color: var(--black);
   }
 
   .works-list {
@@ -265,13 +252,13 @@
 
   .work-item {
     display: grid;
-    grid-template-columns: 80px auto 1fr auto;
-    gap: 24px 32px;
+    grid-template-columns: 120px 1fr auto;
+    gap: 0 36px;
     align-items: center;
-    padding: 24px 0;
-    border-top: 1px solid #1a1a1a;
+    padding: 20px 0;
+    border-top: 1px solid var(--light-grey);
     cursor: default;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, padding 0.3s ease;
     opacity: 0;
     transform: translateY(12px);
   }
@@ -282,19 +269,19 @@
   }
 
   .work-item:last-child {
-    border-bottom: 1px solid #1a1a1a;
+    border-bottom: 1px solid var(--light-grey);
   }
 
   .work-item:hover {
     padding-left: 12px;
-    background: rgba(255,255,255,0.02);
+    background: rgba(0,0,0,0.02);
   }
 
   .work-cover {
-    width: 60px;
-    height: 84px;
-    background: #1e1e1e;
-    border: 1px solid #333;
+    width: 120px;
+    height: 170px;
+    background: #e8e4de;
+    border: 1px solid var(--light-grey);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -309,78 +296,47 @@
   }
 
   .work-cover .cover-placeholder {
-    font-family: var(--serif);
-    font-size: 10px;
-    color: #555;
+    font-size: 11px;
+    color: var(--grey);
     text-align: center;
-    padding: 4px;
-    line-height: 1.2;
-  }
-
-  .work-year {
-    font-family: var(--serif);
-    font-size: 16px;
-    color: #555;
+    padding: 8px;
+    line-height: 1.4;
   }
 
   .work-info {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
   }
 
   .work-title {
-    font-family: var(--serif);
-    font-size: clamp(20px, 2.4vw, 28px);
+    font-size: clamp(18px, 2vw, 24px);
     font-weight: 400;
     line-height: 1.3;
   }
 
   .work-meta {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .work-genre {
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: 12px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #555;
-    white-space: nowrap;
+    color: var(--grey);
   }
 
   .work-buy {
-    font-family: var(--sans);
     font-size: 11px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--white);
+    color: var(--black);
     text-decoration: none;
-    border-bottom: 1px solid #555;
-    padding-bottom: 1px;
-    transition: border-color 0.3s ease, opacity 0.3s ease;
+    border-bottom: 1px solid var(--light-grey);
+    padding-bottom: 2px;
+    transition: border-color 0.3s ease;
     white-space: nowrap;
+    align-self: center;
   }
 
   .work-buy:hover {
-    border-bottom-color: var(--white);
-  }
-
-  .work-item .work-details {
-    grid-column: 2 / -1;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-    font-size: 14px;
-    color: #777;
-    line-height: 1.6;
-  }
-
-  .work-item.expanded .work-details {
-    max-height: 120px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    border-bottom-color: var(--black);
   }
 
   /* PRISER */
@@ -445,13 +401,14 @@
     nav .nav-links { gap: 20px; }
     nav .nav-links a { font-size: 10px; }
     .hero { padding: 0 24px 60px; }
-    .hero::before { right: 24px; height: 120px; }
+    .bio-layout { grid-template-columns: 1fr; }
+    .bio-portrait { display: none; }
     section { padding: 80px 24px; }
     .bio-grid { grid-template-columns: 1fr; gap: 40px; }
     .bio-facts { grid-template-columns: 1fr; }
-    .work-item { grid-template-columns: 50px 1fr; gap: 12px 16px; }
-    .work-cover { width: 50px; height: 70px; }
-    .work-buy { grid-column: 2; justify-self: start; }
+    .work-item { grid-template-columns: 80px 1fr; gap: 0 16px; }
+    .work-cover { width: 80px; height: 114px; }
+    .work-buy { grid-column: 2; justify-self: start; margin-top: 8px; }
     footer { flex-direction: column; gap: 16px; }
   }
 </style>
@@ -477,11 +434,8 @@
 
 <section class="bio" id="om">
   <div class="section-label"><span>Om forfatterskapet</span></div>
-  <div class="bio-grid">
-    <div class="bio-intro">
-      En av norsk poesis mest markante stemmer — med et slentrende, uhøytidelig språk der alvor og humor møtes.
-    </div>
-    <div>
+  <div class="bio-layout">
+    <div class="bio-grid">
       <div class="bio-text">
         <p>Torgeir Rebolledo Pedersen er utdannet arkitekt og debuterte med diktsamlingen <em>Tidr</em> i 1983. Gjennom over fire tiår har han bygget et forfatterskap som spenner fra lyrikk og essayistikk til dramatikk, barnebøker og musikkteater.</p>
         <p>Karakteristisk for hans poesi er et lekent, språkkritisk uttrykk med hyppig bruk av ordspill og ironiske allusjoner. Han er blitt kalt en «poesiens Buster Keaton» — en som trekker leseren inn i en sprelsk, surrealistisk verden der det tragiske og det komiske er to sider av samme sak.</p>
@@ -505,6 +459,9 @@
           <div class="fact-value">Oktober / Solum Bokvennen</div>
         </div>
       </div>
+    </div>
+    <div class="bio-portrait">
+      <img src="bilder/profil.webp" alt="Torgeir Rebolledo Pedersen">
     </div>
   </div>
 </section>
@@ -558,8 +515,8 @@
 
 <script>
 const works = [
-  { year: 2024, title: "Sangbok for vanføre — uleilighetsdikt", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 2023, title: "Krydderkara (et fortellende dikt)", genre: "lyrikk", publisher: "Solum Bokvennen", cover: "", buyUrl: "#" },
+  { year: 2024, title: "Sangbok for vanføre — uleilighetsdikt", genre: "lyrikk", publisher: "Oktober", cover: "bilder/sangbok for v.jpg", buyUrl: "#" },
+  { year: 2023, title: "Krydderkara (et fortellende dikt)", genre: "lyrikk", publisher: "Solum Bokvennen", cover: "bilder/krydder.webp", buyUrl: "#" },
   { year: 2023, title: "Om México og min morfars trokeer. Elfrén Rebolledo 1877–1929", genre: "sakprosa", publisher: "", cover: "", buyUrl: "#" },
   { year: 2022, title: "Tilværelser", genre: "sakprosa", publisher: "Oktober", cover: "", buyUrl: "#" },
   { year: 2019, title: "Musikkteatertekster 1996–2019", genre: "dramatikk", publisher: "Solum", cover: "", buyUrl: "#" },
@@ -604,20 +561,15 @@ function renderWorks(filter) {
       ? `<a href="${w.buyUrl}" class="work-buy" target="_blank" rel="noopener">Kjøp boken →</a>`
       : `<a href="#" class="work-buy" style="opacity:0.35;pointer-events:none;">Kjøp boken →</a>`;
 
+    const metaParts = [w.genre, w.publisher, String(w.year)].filter(Boolean);
     li.innerHTML = `
       <div class="work-cover">${coverHtml}</div>
       <div class="work-info">
         <span class="work-title">${w.title}</span>
-        <div class="work-meta">
-          <span class="work-genre">${w.genre}</span>
-          <span class="work-year">${w.year}</span>
-        </div>
+        <div class="work-meta">${metaParts.join(' · ')}</div>
       </div>
       ${buyHtml}
-      ${w.publisher ? `<div class="work-details">${w.publisher}</div>` : '<div class="work-details"></div>'}
     `;
-
-    li.addEventListener('click', () => li.classList.toggle('expanded'));
 
     list.appendChild(li);
 
@@ -654,7 +606,7 @@ const bioObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.bio-grid, .prize-item').forEach(el => {
+document.querySelectorAll('.prize-item').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(24px)';
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
