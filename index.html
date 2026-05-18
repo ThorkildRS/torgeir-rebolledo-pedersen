@@ -92,6 +92,65 @@
     position: relative;
   }
 
+  .hero-poem {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-60%);
+    text-align: left;
+  }
+
+  .hero-poem .poem-line,
+  .hero-poem .poem-break {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(14px, 1.3vw, 19px);
+    line-height: 2;
+    white-space: nowrap;
+    color: #666;
+  }
+
+  .hero-poem .poem-break {
+    color: transparent;
+    pointer-events: none;
+  }
+
+  .hero-poem .poem-line {
+    -webkit-mask-image: linear-gradient(90deg, #000 50%, transparent 70%);
+    mask-image: linear-gradient(90deg, #000 50%, transparent 70%);
+    -webkit-mask-size: 400% 100%;
+    mask-size: 400% 100%;
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    transition: mask-position 4s ease, -webkit-mask-position 4s ease;
+    will-change: mask-position;
+  }
+
+  .hero-poem .poem-line.visible {
+    -webkit-mask-position: 0% 0;
+    mask-position: 0% 0;
+  }
+
+  .hero-poem .poem-attr {
+    display: block;
+    margin-top: 28px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-style: normal;
+    color: var(--grey);
+    opacity: 0;
+    transition: opacity 1.4s ease;
+    will-change: opacity;
+  }
+
+  .hero-poem .poem-attr.visible {
+    opacity: 1;
+  }
+
   .hero-name {
     font-family: var(--serif);
     font-size: clamp(42px, 5.5vw, 84px);
@@ -279,20 +338,15 @@
 
   .work-cover {
     width: 120px;
-    height: 170px;
-    background: #e8e4de;
     border: 1px solid var(--light-grey);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
     flex-shrink: 0;
+    align-self: flex-start;
   }
 
   .work-cover img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
   }
 
   .work-cover .cover-placeholder {
@@ -407,7 +461,7 @@
     .bio-grid { grid-template-columns: 1fr; gap: 40px; }
     .bio-facts { grid-template-columns: 1fr; }
     .work-item { grid-template-columns: 80px 1fr; gap: 0 16px; }
-    .work-cover { width: 80px; height: 114px; }
+    .work-cover { width: 80px; }
     .work-buy { grid-column: 2; justify-self: start; margin-top: 8px; }
     footer { flex-direction: column; gap: 16px; }
   }
@@ -425,6 +479,7 @@
 </nav>
 
 <header class="hero" id="topp">
+  <div class="hero-poem" id="heroPoem"></div>
   <h1 class="hero-name">Torgeir<br><em>Rebolledo</em><br>Pedersen</h1>
   <div class="hero-sub">
     <span class="label">Dikter · Arkitekt · Dramatiker</span>
@@ -438,7 +493,7 @@
     <div class="bio-grid">
       <div class="bio-text">
         <p>Torgeir Rebolledo Pedersen er utdannet arkitekt og debuterte med diktsamlingen <em>Tidr</em> i 1983. Gjennom over fire tiår har han bygget et forfatterskap som spenner fra lyrikk og essayistikk til dramatikk, barnebøker og musikkteater.</p>
-        <p>Karakteristisk for hans poesi er et lekent, språkkritisk uttrykk med hyppig bruk av ordspill og ironiske allusjoner. Han er blitt kalt en «poesiens Buster Keaton» — en som trekker leseren inn i en sprelsk, surrealistisk verden der det tragiske og det komiske er to sider av samme sak.</p>
+        <p>Karakteristisk for hans poesi er et lekent, språkkritisk uttrykk med hyppig bruk av ordspill og ironiske allusjoner.</p>
         <p>I 1980-årene var han en del av den poetiske aksjonsgruppen Stuntpoetene, sammen med blant andre Karin Moe, Thorvald Steen og Erling Kittelsen. Han har opptrådt med jazzgruppen Søyr, og i 2005 ble han Norgesmester i slampoesi.</p>
       </div>
       <div class="bio-facts">
@@ -456,7 +511,7 @@
         </div>
         <div>
           <div class="fact-label">Forlag</div>
-          <div class="fact-value">Oktober / Solum Bokvennen</div>
+          <div class="fact-value">Oktober / Solum Bokvennen / Cappelen Damm</div>
         </div>
       </div>
     </div>
@@ -515,17 +570,18 @@
 
 <script>
 const works = [
+  { year: 2025, title: "Se opp for sopp!", genre: "barnebøker", publisher: "Solum Bokvennen", cover: "bilder/se opp for sopp.jpg", buyUrl: "#" },
   { year: 2024, title: "Sangbok for vanføre — uleilighetsdikt", genre: "lyrikk", publisher: "Oktober", cover: "bilder/sangbok for v.jpg", buyUrl: "#" },
   { year: 2023, title: "Krydderkara (et fortellende dikt)", genre: "lyrikk", publisher: "Solum Bokvennen", cover: "bilder/krydder.webp", buyUrl: "#" },
-  { year: 2023, title: "Om México og min morfars trokeer. Elfrén Rebolledo 1877–1929", genre: "sakprosa", publisher: "", cover: "", buyUrl: "#" },
-  { year: 2022, title: "Tilværelser", genre: "sakprosa", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 2023, title: "Om México og min morfars trokeer. Elfrén Rebolledo 1877–1929", genre: "sakprosa", publisher: "", cover: "bilder/morfars trokeer.jpg", buyUrl: "#" },
+  { year: 2022, title: "Tilværelser", genre: "sakprosa", publisher: "Oktober", cover: "bilder/tilværelser.jpg", buyUrl: "#" },
   { year: 2019, title: "Musikkteatertekster 1996–2019", genre: "dramatikk", publisher: "Solum", cover: "", buyUrl: "#" },
-  { year: 2019, title: "Dikt i utvalg. I krig og kjærlighet er mye ugjort", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 2013, title: "Dattera som datt ut av et vindu", genre: "barnebøker", publisher: "Cappelen Damm", cover: "", buyUrl: "#" },
-  { year: 2011, title: "Lammet som ikke ville bli lår", genre: "barnebøker", publisher: "Cappelen", cover: "", buyUrl: "#" },
-  { year: 2010, title: "Erfaring og forsvinning", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 2008, title: "Min fars tegnemaskin", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 2006, title: "Geitehjerte", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
+  { year: 2019, title: "Dikt i utvalg. I krig og kjærlighet er mye ugjort", genre: "lyrikk", publisher: "Oktober", cover: "bilder/dikt i utvalg - i krig og kjærlighet er mye ugjort.jpg", buyUrl: "#" },
+  { year: 2013, title: "Dattera som datt ut av et vindu", genre: "barnebøker", publisher: "Cappelen Damm", cover: "bilder/dattera som datt ut av et vindu.webp", buyUrl: "#" },
+  { year: 2011, title: "Lammet som ikke ville bli lår", genre: "barnebøker", publisher: "Cappelen", cover: "bilder/lammet som ikke ville bli lår.webp", buyUrl: "#" },
+  { year: 2010, title: "Erfaring og forsvinning", genre: "lyrikk", publisher: "Oktober", cover: "bilder/erfaring og forsvinning.jpg", buyUrl: "#" },
+  { year: 2008, title: "Min fars tegnemaskin", genre: "lyrikk", publisher: "Oktober", cover: "bilder/min fars tegnemaskin.jpg", buyUrl: "#" },
+  { year: 2006, title: "Geitehjerte", genre: "lyrikk", publisher: "Oktober", cover: "bilder/geitehjerte.webp", buyUrl: "#" },
   { year: 2006, title: "God natt, lille abbor", genre: "barnebøker", publisher: "Cappelen Damm", cover: "", buyUrl: "#" },
   { year: 2002, title: "Ferdskriver", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
   { year: 2000, title: "Regnestykke for en sky", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
@@ -592,6 +648,65 @@ const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 });
+
+// Poem cycling
+const poems = [
+  {
+    lines: ['husker du?', '', 'da du skjøt meg', 'ut med kroppen din, jeg', 'en liten blå harpun', 'i navlestreng', 'på vei utover', 'etter hvalen sin'],
+    attr: 'fra TIDR (1983) &amp; DIKT I UTVALG (2019) — Forlaget Oktober.'
+  },
+  {
+    lines: ['Havet', '', 'skurer hvitt', 'fjærer', 'lett fram tilbake fram', 'arbeider', 'etter forbilder', 'tusen år inne i fjellet', 'havet', 'eneste kunstner', 'med minsteinntekt fra regn og elver', 'med reisestipend fra strøm og vind'],
+    attr: 'fra TIDR (1983) &amp; DIKT I UTVALG (2019) — Forlaget Oktober.'
+  },
+  {
+    lines: ['Før vi vet ordet av oss', '', 'Før vi vet ordet av oss', 'Blåøyd kommer våren med oss', 'Gir oss hen og gir oss hen', 'Før vi vet ordet av oss er vi metaforer', 'Stærøyde, i flokk og følge', 'ekspedert herfra'],
+    attr: 'fra BLÅVEISFRA (1983) &amp; DIKT I UTVALG (2019) — Forlaget Oktober.'
+  }
+];
+
+const REVEAL_MS  = 4000;
+const LINE_MS    = 2200;
+const START_MS   = 1000;
+const HOLD_MS    = 4000;
+const FADE_MS    = 1500;
+const GAP_MS     = 2000;
+
+const heroPoem = document.getElementById('heroPoem');
+
+function showPoem(idx) {
+  const poem = poems[idx % poems.length];
+
+  heroPoem.style.transition = '';
+  heroPoem.style.opacity = '1';
+  heroPoem.innerHTML =
+    poem.lines.map(l =>
+      l === ''
+        ? `<span class="poem-break">&nbsp;</span>`
+        : `<span class="poem-line">${l}</span>`
+    ).join('') +
+    `<span class="poem-attr">${poem.attr}</span>`;
+
+  const lines = heroPoem.querySelectorAll('.poem-line');
+  const attr  = heroPoem.querySelector('.poem-attr');
+
+  lines.forEach((line, i) => {
+    setTimeout(() => line.classList.add('visible'), START_MS + i * LINE_MS);
+  });
+
+  const lastLineEnd = START_MS + (lines.length - 1) * LINE_MS + REVEAL_MS;
+  setTimeout(() => attr.classList.add('visible'), lastLineEnd + 800);
+
+  const fadeStart = lastLineEnd + 800 + 1400 + HOLD_MS;
+  setTimeout(() => {
+    heroPoem.style.transition = `opacity ${FADE_MS}ms ease`;
+    heroPoem.style.opacity = '0';
+  }, fadeStart);
+
+  setTimeout(() => showPoem(idx + 1), fadeStart + FADE_MS + GAP_MS);
+}
+
+showPoem(0);
 
 // Initial render
 renderWorks('alle');
