@@ -451,19 +451,60 @@
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
-    nav { padding: 20px 24px; }
-    nav .nav-links { gap: 20px; }
+    /* NAV — stable på én linje, litt tettere */
+    nav {
+      padding: 14px 24px;
+      flex-wrap: wrap;
+      gap: 6px 0;
+    }
+    nav .logo { font-size: 11px; letter-spacing: 0.1em; }
+    nav .nav-links { gap: 18px; }
     nav .nav-links a { font-size: 10px; }
-    .hero { padding: 0 24px 60px; }
+
+    /* HERO */
+    .hero { padding: 0 24px 56px; }
+
+    /* Dikt: venstrestilt, liten font */
+    .hero-poem {
+      right: auto;
+      left: 24px;
+      top: 42%;
+      transform: translateY(-50%);
+    }
+    .hero-poem .poem-line,
+    .hero-poem .poem-break { font-size: 12px; }
+
+    .hero-sub { gap: 16px; flex-wrap: wrap; }
+
+    /* SEKSJONER */
+    section { padding: 72px 24px; }
+
+    /* BIO */
     .bio-layout { grid-template-columns: 1fr; }
     .bio-portrait { display: none; }
-    section { padding: 80px 24px; }
-    .bio-grid { grid-template-columns: 1fr; gap: 40px; }
-    .bio-facts { grid-template-columns: 1fr; }
-    .work-item { grid-template-columns: 80px 1fr; gap: 0 16px; }
-    .work-cover { width: 80px; }
+
+    /* Bio-fakta: stablet vertikalt i stedet for side om side */
+    .bio-facts { flex-direction: column; }
+    .bio-facts > div {
+      padding: 16px 0 0 0;
+      border-left: none;
+      border-top: 1px solid var(--light-grey);
+    }
+    .bio-facts > div:first-child { border-top: none; padding-top: 0; }
+    .bio-facts > div + div { padding-left: 0; border-left: none; }
+
+    /* UTGIVELSER */
+    .work-item {
+      grid-template-columns: 80px 1fr;
+      gap: 0 16px;
+      align-items: start;
+    }
+    /* Omslag spanner begge rader slik at «Kjøp»-lenken havner under tittelen */
+    .work-cover { width: 80px; grid-row: 1 / span 2; }
     .work-buy { grid-column: 2; justify-self: start; margin-top: 8px; }
-    footer { flex-direction: column; gap: 16px; }
+
+    /* FOOTER */
+    footer { flex-direction: column; gap: 16px; padding: 32px 24px; text-align: center; }
   }
 </style>
 </head>
