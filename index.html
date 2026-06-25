@@ -511,6 +511,8 @@
   <div class="nav-links">
     <a href="#om">Om</a>
     <a href="#utgivelser">Utgivelser</a>
+    <a href="#bidrag">Bidrag</a>
+    <a href="#musikk">Musikk</a>
     <a href="#priser">Priser</a>
   </div>
 </nav>
@@ -570,6 +572,50 @@
   <ul class="works-list" id="worksList"></ul>
 </section>
 
+<section class="prizes" id="bidrag">
+  <div class="section-label"><span>Bidrag i andres bøker</span></div>
+  <div class="prize-list">
+    <div class="prize-item">
+      <div class="prize-name">Denne forunderlige by</div>
+      <div class="prize-year-desc">1993 — Red. Karsten Alnæs, Lars Saabye Christensen, Vigdis Hjorth · Cappelen Forlag</div>
+    </div>
+    <div class="prize-item">
+      <div class="prize-name">Kunstnerbrevet 2025 — Et opprop for den frie kunsten</div>
+      <div class="prize-year-desc">2025 — Red. Jan Lothe Eriksen · Ford Forlag</div>
+    </div>
+    <div class="prize-item">
+      <div class="prize-name">Her lå en dam</div>
+      <div class="prize-year-desc">2026 — Red. Eivind Hofstad Evjemo · Cappelen Damm</div>
+    </div>
+  </div>
+</section>
+
+<section class="prizes" id="musikk">
+  <div class="section-label"><span>CD-utgivelser / Musikk</span></div>
+  <div class="prize-list">
+    <div class="prize-item">
+      <div class="prize-name">Alfa & Romeo / Hemera</div>
+      <div class="prize-year-desc">m/ Tor Halmrast</div>
+    </div>
+    <div class="prize-item">
+      <div class="prize-name">Med kjøtt og kjærlighet</div>
+      <div class="prize-year-desc">m/ SØYR og Niels Fredrik Dahl. Tekstforfatter og utøvende · Curling Legs</div>
+    </div>
+    <div class="prize-item">
+      <div class="prize-name">Ni sanger for en dødfødt katt</div>
+      <div class="prize-year-desc">Tekster/dikt tonsatt av Gunnar Germeten. Også utøvende sanger og resitatør · Hot Club Records</div>
+    </div>
+    <div class="prize-item">
+      <div class="prize-name">Kloden er en snurrebass som snurrer oss</div>
+      <div class="prize-year-desc">m/ KVITRETTEN (Asbjørnsen, Raknes, Slettahjell, Tone Åse). Mus.regi Chr. Wallumrød. Tekstfragmenter gjendiktet/framført på norsk, engelsk og spansk · Curling Legs (2001)</div>
+    </div>
+    <div class="prize-item">
+      <div class="prize-name">Små sanger mest i det blå</div>
+      <div class="prize-year-desc">Tekster til Eldbjørg Raknes · Bergland Productions</div>
+    </div>
+  </div>
+</section>
+
 <section class="prizes" id="priser">
   <div class="section-label"><span>Priser og utmerkelser</span></div>
   <div class="prize-list">
@@ -607,33 +653,37 @@
 
 <script>
 const works = [
-  { year: 2025, title: "Se opp for sopp!", genre: "barnebøker", publisher: "Solum Bokvennen", cover: "bilder/se opp for sopp.jpg", buyUrl: "#" },
-  { year: 2024, title: "Sangbok for vanføre — uleilighetsdikt", genre: "lyrikk", publisher: "Oktober", cover: "bilder/sangbok for v.jpg", buyUrl: "#" },
-  { year: 2023, title: "Krydderkara (et fortellende dikt)", genre: "lyrikk", publisher: "Solum Bokvennen", cover: "bilder/krydder.webp", buyUrl: "#" },
-  { year: 2023, title: "Om México og min morfars trokeer. Elfrén Rebolledo 1877–1929", genre: "sakprosa", publisher: "", cover: "bilder/morfars trokeer.jpg", buyUrl: "#" },
-  { year: 2022, title: "Tilværelser", genre: "sakprosa", publisher: "Oktober", cover: "bilder/tilværelser.jpg", buyUrl: "#" },
-  { year: 2019, title: "Musikkteatertekster 1996–2019", genre: "dramatikk", publisher: "Solum", cover: "", buyUrl: "#" },
-  { year: 2019, title: "Dikt i utvalg. I krig og kjærlighet er mye ugjort", genre: "lyrikk", publisher: "Oktober", cover: "bilder/dikt i utvalg - i krig og kjærlighet er mye ugjort.jpg", buyUrl: "#" },
-  { year: 2013, title: "Dattera som datt ut av et vindu", genre: "barnebøker", publisher: "Cappelen Damm", cover: "bilder/dattera som datt ut av et vindu.webp", buyUrl: "#" },
-  { year: 2011, title: "Lammet som ikke ville bli lår", genre: "barnebøker", publisher: "Cappelen", cover: "bilder/lammet som ikke ville bli lår.webp", buyUrl: "#" },
-  { year: 2010, title: "Erfaring og forsvinning", genre: "lyrikk", publisher: "Oktober", cover: "bilder/erfaring og forsvinning.jpg", buyUrl: "#" },
-  { year: 2008, title: "Min fars tegnemaskin", genre: "lyrikk", publisher: "Oktober", cover: "bilder/min fars tegnemaskin.jpg", buyUrl: "#" },
-  { year: 2006, title: "Geitehjerte", genre: "lyrikk", publisher: "Oktober", cover: "bilder/geitehjerte.webp", buyUrl: "#" },
-  { year: 2006, title: "God natt, lille abbor", genre: "barnebøker", publisher: "Cappelen Damm", cover: "", buyUrl: "#" },
-  { year: 2002, title: "Ferdskriver", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 2000, title: "Regnestykke for en sky", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 1998, title: "Nutrius (medforfatter)", genre: "lyrikk", publisher: "Univ. i Oslo", cover: "", buyUrl: "#" },
-  { year: 1997, title: "Blåveisfra", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 1996, title: "Verdener Gud engang ga ut", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 1996, title: "Askeladden og de gode hjelperne", genre: "dramatikk", publisher: "", cover: "", buyUrl: "#" },
-  { year: 1995, title: "I krig og kjærlighet er ennå mye ugjort", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 1993, title: "Han som elsket verden", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 1990, title: "Stråmann", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 1989, title: "En skapelsesoppfordring", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 1988, title: "Landskapets hengsler", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 1987, title: "Pube", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 1985, title: "Gule sko. Gå med løvet", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" },
-  { year: 1983, title: "Tidr", genre: "lyrikk", publisher: "Oktober", cover: "", buyUrl: "#" }
+  { year: 2025, title: "Se opp for sopp!", genre: "barnebøker", publisher: "Solum Bokvennen", collab: "m/ Inger Lise Belsvik", cover: "bilder/se opp for sopp.jpg", buyUrl: "#" },
+  { year: 2024, title: "Sangbok for vanføre — uleilighetsdikt", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "bilder/sangbok for v.jpg", buyUrl: "#" },
+  { year: 2023, title: "Krydderkara (et fortellende dikt)", genre: "lyrikk", publisher: "Solum Bokvennen", collab: "m/ Per Dybvig", cover: "bilder/krydder.webp", buyUrl: "#" },
+  { year: 2022, title: "Om México og min morfars trokeer. Elfrén Rebolledo 1877–1929", genre: "sakprosa", publisher: "", collab: "", cover: "bilder/morfars trokeer.jpg", buyUrl: "#" },
+  { year: 2020, title: "Tilværelser", genre: "sakprosa", publisher: "Oktober", collab: "", cover: "bilder/tilværelser.jpg", buyUrl: "#" },
+  { year: 2020, title: "Alna", genre: "lyrikk", publisher: "", collab: "m/ Bjørnar Øvrebø", cover: "", buyUrl: "#" },
+  { year: 2019, title: "Musikkteatertekster 1996–2019", genre: "dramatikk", publisher: "Solum", collab: "", cover: "", buyUrl: "#" },
+  { year: 2019, title: "Dikt i utvalg. I krig og kjærlighet er mye ugjort", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "bilder/dikt i utvalg - i krig og kjærlighet er mye ugjort.jpg", buyUrl: "#" },
+  { year: 2018, title: "Ode til en russisk eske", genre: "lyrikk", publisher: "", collab: "", cover: "", buyUrl: "#" },
+  { year: 2018, title: "Sauesankertanker", genre: "lyrikk", publisher: "", collab: "", cover: "", buyUrl: "#" },
+  { year: 2016, title: "Dikt og udikt om likt og ulikt", genre: "barnebøker", publisher: "", collab: "m/ Akin Duzakin", cover: "", buyUrl: "#" },
+  { year: 2013, title: "Dattera som datt ut av et vindu", genre: "barnebøker", publisher: "Cappelen Damm", collab: "", cover: "bilder/dattera som datt ut av et vindu.webp", buyUrl: "#" },
+  { year: 2011, title: "Lammet som ikke ville bli lår", genre: "barnebøker", publisher: "Cappelen", collab: "", cover: "bilder/lammet som ikke ville bli lår.webp", buyUrl: "#" },
+  { year: 2010, title: "Erfaring og forsvinning", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "bilder/erfaring og forsvinning.jpg", buyUrl: "#" },
+  { year: 2008, title: "Min fars tegnemaskin", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "bilder/min fars tegnemaskin.jpg", buyUrl: "#" },
+  { year: 2006, title: "Geitehjerte", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "bilder/geitehjerte.webp", buyUrl: "#" },
+  { year: 2006, title: "God natt, lille abbor", genre: "barnebøker", publisher: "Cappelen Damm", collab: "", cover: "", buyUrl: "#" },
+  { year: 2002, title: "Ferdskriver", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" },
+  { year: 2000, title: "Regnestykke for en sky", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" },
+  { year: 1998, title: "Nutrius (medforfatter)", genre: "lyrikk", publisher: "Univ. i Oslo", collab: "", cover: "", buyUrl: "#" },
+  { year: 1997, title: "Blåveisfra", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" },
+  { year: 1996, title: "Verdener Gud engang ga ut", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" },
+  { year: 1996, title: "Askeladden og de gode hjelperne", genre: "dramatikk", publisher: "", collab: "", cover: "", buyUrl: "#" },
+  { year: 1995, title: "I krig og kjærlighet er ennå mye ugjort", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" },
+  { year: 1993, title: "Han som elsket verden", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" },
+  { year: 1990, title: "Stråmann", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" },
+  { year: 1989, title: "En skapelsesoppfordring", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" },
+  { year: 1988, title: "Landskapets hengsler", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" },
+  { year: 1987, title: "Pube", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" },
+  { year: 1985, title: "Gule sko. Gå med løvet", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" },
+  { year: 1983, title: "Tidr", genre: "lyrikk", publisher: "Oktober", collab: "", cover: "", buyUrl: "#" }
 ];
 
 const list = document.getElementById('worksList');
@@ -654,7 +704,7 @@ function renderWorks(filter) {
       ? `<a href="${w.buyUrl}" class="work-buy" target="_blank" rel="noopener">Kjøp boken →</a>`
       : `<a href="#" class="work-buy" style="opacity:0.35;pointer-events:none;">Kjøp boken →</a>`;
 
-    const metaParts = [w.genre, w.publisher, String(w.year)].filter(Boolean);
+    const metaParts = [w.genre, w.collab, w.publisher, String(w.year)].filter(Boolean);
     li.innerHTML = `
       <div class="work-cover">${coverHtml}</div>
       <div class="work-info">
