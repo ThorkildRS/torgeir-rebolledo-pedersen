@@ -10,7 +10,7 @@
 
   :root {
     --black: #0a0a0a;
-    --white: #f5f3f0;
+    --white: #ffffff;
     --grey: #888;
     --light-grey: #d4d0cb;
     --serif: 'Baskerville', 'Libre Baskerville', Georgia, serif;
@@ -24,7 +24,7 @@
     color: var(--black);
     font-family: var(--serif);
     font-weight: 400;
-    font-size: 17px;
+    font-size: 20px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -57,7 +57,7 @@
 
   nav .logo {
     font-family: var(--serif);
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 400;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -69,7 +69,7 @@
   }
 
   nav .nav-links a {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -105,7 +105,7 @@
     display: block;
     font-family: var(--serif);
     font-style: italic;
-    font-size: clamp(14px, 1.3vw, 19px);
+    font-size: clamp(17px, 1.6vw, 23px);
     line-height: 2;
     white-space: nowrap;
     color: #666;
@@ -137,7 +137,7 @@
   .hero-poem .poem-attr {
     display: block;
     margin-top: 28px;
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     font-style: normal;
@@ -153,16 +153,12 @@
 
   .hero-name {
     font-family: var(--serif);
-    font-size: clamp(42px, 5.5vw, 84px);
+    font-size: clamp(36px, 6vw, 80px);
     font-weight: 400;
-    line-height: 1.05;
+    line-height: 1.15;
     letter-spacing: -0.01em;
     margin-bottom: 32px;
     animation: fadeUp 0.8s ease-out both;
-  }
-
-  .hero-name em {
-    font-style: italic;
   }
 
   .hero-sub {
@@ -173,14 +169,14 @@
   }
 
   .hero-sub .label {
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--grey);
   }
 
   .hero-sub .year {
-    font-size: 15px;
+    font-size: 18px;
     color: var(--grey);
   }
 
@@ -195,7 +191,7 @@
   }
 
   .section-label {
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--grey);
@@ -233,7 +229,7 @@
   .bio-text p {
     margin-bottom: 20px;
     color: #444;
-    font-size: 16px;
+    font-size: 19px;
     line-height: 1.8;
   }
 
@@ -261,7 +257,7 @@
   }
 
   .fact-label {
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--grey);
@@ -269,7 +265,7 @@
   }
 
   .fact-value {
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 400;
   }
 
@@ -288,7 +284,7 @@
 
   .filter-btn {
     font-family: var(--sans);
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     background: none;
@@ -311,7 +307,7 @@
 
   .work-item {
     display: grid;
-    grid-template-columns: 120px 1fr auto;
+    grid-template-columns: 140px 1fr auto;
     gap: 0 36px;
     align-items: center;
     padding: 20px 0;
@@ -337,7 +333,7 @@
   }
 
   .work-cover {
-    width: 120px;
+    width: 140px;
     border: 1px solid var(--light-grey);
     flex-shrink: 0;
     align-self: flex-start;
@@ -364,20 +360,20 @@
   }
 
   .work-title {
-    font-size: clamp(18px, 2vw, 24px);
+    font-size: clamp(20px, 2.2vw, 27px);
     font-weight: 400;
     line-height: 1.3;
   }
 
   .work-meta {
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--grey);
   }
 
   .work-buy {
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--black);
@@ -411,13 +407,13 @@
 
   .prize-name {
     font-family: var(--serif);
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 400;
     margin-bottom: 8px;
   }
 
   .prize-year-desc {
-    font-size: 15px;
+    font-size: 18px;
     color: var(--grey);
   }
 
@@ -431,13 +427,13 @@
   }
 
   footer .colophon {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--grey);
     letter-spacing: 0.05em;
   }
 
   footer .back-top {
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none;
@@ -472,7 +468,7 @@
       transform: translateY(-50%);
     }
     .hero-poem .poem-line,
-    .hero-poem .poem-break { font-size: 12px; }
+    .hero-poem .poem-break { font-size: 14px; }
 
     .hero-sub { gap: 16px; flex-wrap: wrap; }
 
@@ -500,7 +496,7 @@
       align-items: start;
     }
     /* Omslag spanner begge rader slik at «Kjøp»-lenken havner under tittelen */
-    .work-cover { width: 80px; grid-row: 1 / span 2; }
+    .work-cover { width: 90px; grid-row: 1 / span 2; }
     .work-buy { grid-column: 2; justify-self: start; margin-top: 8px; }
 
     /* FOOTER */
@@ -521,7 +517,7 @@
 
 <header class="hero" id="topp">
   <div class="hero-poem" id="heroPoem"></div>
-  <h1 class="hero-name">Torgeir<br><em>Rebolledo</em><br>Pedersen</h1>
+  <h1 class="hero-name">Torgeir Rebolledo Pedersen</h1>
   <div class="hero-sub">
     <span class="label">Dikter · Arkitekt · Dramatiker</span>
     <span class="year">f. 1949, Oslo</span>
